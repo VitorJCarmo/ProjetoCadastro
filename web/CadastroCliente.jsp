@@ -21,7 +21,7 @@
             String rg = request.getParameter("rg");
             String email = request.getParameter("email");
             String telefone = request.getParameter("telefone");
-            String endereco = request.getParameter("endereço");
+            String endereco = request.getParameter("endereco");
             
             Cliente c= new Cliente();
             c.setNome(nome);
@@ -29,7 +29,7 @@
             c.setRg(rg);
             c.setEmail(email);
             c.setTelefone(telefone);
-            c.setEndereço(endereco);
+            c.setEndereco(endereco);
             
             BD.getClientes().add(c);
             
@@ -57,7 +57,7 @@
                 Telefone:<br>
                 <input type="text" name="telefone"/><br/>
                  Endereço:<br>
-                <input type="text" name="endereço"/><br/>
+                <input type="text" name="endereco"/><br/>
                 <br>
                 <input type="submit" name="enviar" value="Adicionar"/>
             </form>
@@ -86,7 +86,7 @@
                     <td><%=c.getRg()%></td>
                     <td><%=c.getEmail()%></td>
                     <td><%=c.getTelefone()%></td>
-                    <td><%=c.getEndereço()%></td>
+                    <td><%=c.getEndereco()%></td>
                     <td>
                         <form>
                             <input type="hidden" name="i" value="<%=i%>"/>
@@ -119,7 +119,7 @@
                 Telefone:<br>
                 <input type="text" name="novotelefone" value="<%=c.getTelefone()%>"/><br/>
                  Endereço:<br>
-                <input type="text" name="novoendereço" value="<%=c.getEndereço()%>"/><br/>
+                <input type="text" name="novoendereço" value="<%=c.getEndereco()%>"/><br/>
                 <br>
                 <input type="submit" name="alterar" value="alterar"/>
             </form>
@@ -133,13 +133,13 @@
             String rg = request.getParameter("novorg");
             String email = request.getParameter("novoemail");
             String telefone = request.getParameter("novotelefone");
-            String endereço = request.getParameter("novoendereço");
+            String endereco = request.getParameter("novoendereço");
             c.setNome(nome);
             c.setCpf(cpf);
             c.setRg(rg);
             c.setEmail(email);
             c.setTelefone(telefone);
-            c.setEndereço(endereço);
+            c.setEndereco(endereco);
             
             BD.getClientes().add(c);
                }

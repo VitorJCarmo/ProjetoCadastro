@@ -7,7 +7,7 @@ public class Cliente {
     private String rg;
     private String email;
     private String telefone;
-    private String endereço;
+    private String endereco;
 
     public String getNome() {
         return nome;
@@ -49,12 +49,12 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public String getEndereço() {
-        return endereço;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
     
 }
