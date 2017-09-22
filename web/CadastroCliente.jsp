@@ -1,21 +1,20 @@
-<%-- 
-    Document   : contatos
-    Created on : 20/09/2017, 21:25:41
-    Author     : Marjorie
---%>
-<%--<%@page import="app.Contato"%>
-<%@page import="app.Bd"%>--%>
+
+<%@page import="app.Cliente"%>
+<%@page import="app.BD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cliente - JSP Page</title>
     </head>
     <body>
-        <h1>Contatos</h1>
+        <h1>Cliente</h1>
         <%try{
+
+            
          if (request.getParameter("enviar")!=null){
+
+            
             String nome = request.getParameter("nome");
             String cpf = request.getParameter("cpf");
             String rg = request.getParameter("rg");
@@ -23,7 +22,7 @@
             String telefone = request.getParameter("telefone");
             String endereço = request.getParameter("endereço");
             
-            Contato c= new Contato();
+            Cliente c= new Cliente();
             c.setNome(nome);
             c.setNome(cpf);
             c.setNome(rg);
@@ -31,24 +30,24 @@
             c.setTelefone(telefone);
             c.setTelefone(endereço);
             
-            Bd.getContatos().add(c);
+            BD.getClientes().add(c);
             
          }else if(request.getParameter("remove")!=null){
              int i=Integer.parseInt(request.getParameter("i"));
-            Bd.getContatos().remove(i);
+            BD.getClientes().remove(i);
         }} catch(Exception ex){ %>
     <div> *erro ao processar o comando:<%=ex.getMessage()%></div>
        <% }  %>
         <fieldset>
             
             </table>
-            <legend>Novo Contatos</legend>
+            <legend>Novo Cliente</legend>
             <form>
                 Nome:<br>
                 <input type="text" name="nome"/><br/>
-                 Cpf:<br>
+                Cpf:<br>
                 <input type="text" name="cpf"/><br/>
-                 Rg:<br>
+                Rg:<br>
                 <input type="text" name="rg"/><br/>
                 Email:<br>
                 <input type="text" name="email"/><br/>
@@ -61,7 +60,7 @@
             </form>
         </fieldset>
         
-        <h2>Lista</h2>
+        <h2>Listagem</h2>
             <table border="1">
                 <tr>
                     <th>Indice</th>
@@ -71,16 +70,19 @@
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Endereço</th>
-                    <th>exclusao</th>
+                    <th>Exclusao</th>
                 </tr>
                 
-                <% for(int i=0; i<Bd.getContatos().size();i++){ %>
-                <% Contato c = Bd.getContatos().get(i);%>
+                <% for(int i=0; i<BD.getClientes().size();i++){ %>
+                <% Cliente c = BD.getClientes().get(i);%>
                 <tr>
                     <td><%=i%></td>
                     <td><%=c.getNome()%></td>
+                    <td><%=c.getCpf()%></td>
+                    <td><%=c.getRg()%></td>
                     <td><%=c.getEmail()%></td>
                     <td><%=c.getTelefone()%></td>
+                    <td><%=c.getEndereço()%></td>
                     <td>
                         <form>
                             <input type="hidden" name="i" value="<%=i%>"/>
