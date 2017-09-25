@@ -50,6 +50,12 @@
                     }else{
                         t = true;
                     }
+                }else if(request.getParameter("removeall") != null){
+                    int rt = BD.getClientes().size() - 1;
+                    for (int r = rt; r >= 0; r--){
+                        BD.getClientes().remove(r);
+                    }
+                    t = false;
                 }
             }catch(Exception ex){ %>
                 <div> *erro ao processar o comando:<%=ex.getMessage()%></div>
@@ -57,7 +63,7 @@
             
             <!--Tabela de Clientes-->
             <%if (BD.getClientes().size() != 0 && request.getParameter("novo") == null && request.getParameter("edit") == null){%>
-            <h2>Clientes Cadastrados</h2>
+            <h2>Clientes Cadastrados</h2><br/>
             <table align="center" border="1">
                 <tr>
                     <th>Indice</th>
@@ -67,7 +73,7 @@
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Endereço</th>
-                    <th>Exclusao</th>
+                    <th>Exclusão</th>
                     <th>Edição</th>
                 </tr>
 
@@ -102,6 +108,7 @@
             <br/>
             <form>
                 <input type="submit" name="novo" value="Novo">
+                <input type="submit" name="removeall" value="Remover Tudo">
             </form>
         <%}%>
         
@@ -109,7 +116,7 @@
             <!--Formulário para inserir novo Cliente-->
             <%if (BD.getClientes().size() == 0 || request.getParameter("novo") != null) {%>
             <fieldset>
-                <legend>Novo Cliente</legend>
+                <h2>Novo Cliente</h2><br/>
                 <form name="principal">
                     <label>Nome:</label>
                     <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
@@ -137,7 +144,7 @@
             Cliente c = BD.getClientes().get(i);%>
 
     <fieldset>
-        <legend>Editar Cliente</legend>
+        <h2>Editar Cliente</h2><br/>
             <form>
                 <label>Nome:</label>
                 <input type="text" name="nome1" value="<%=c.getNome()%>"/><br/>
