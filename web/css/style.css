@@ -9,8 +9,10 @@
     max-height: 70px;
 }
 .container{
-    margin-left: 2%;
+    margin-left: 9%;
     margin-right: 2%;
+    text-align: center; 
+    
 }
 #header-text{
     padding-top: 3% ;
@@ -31,4 +33,16 @@
 #table{
     float: right;
     display: table;
+}
+label{
+    display: inline-block;
+    text-align: left;
+    font-weight: bold;
+    width: 75px;
+    height: 30px;
+}
+td{
+    padding-top: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
 }

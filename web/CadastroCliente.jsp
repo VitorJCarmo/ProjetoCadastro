@@ -13,11 +13,11 @@
 
     <div class="container">
         
-        <h1>Cliente</h1>
+        <h1>Clientes</h1><br/>
         <%
-            boolean t = false;
+            boolean t = true;
             try{
-                if (request.getParameter("enviar")!=null){
+                if ( request.getParameter("enviar")!=null){
                     
                     t = true;
                     String nome = request.getParameter("nome");
@@ -54,28 +54,11 @@
             }catch(Exception ex){ %>
                 <div> *erro ao processar o comando:<%=ex.getMessage()%></div>
             <%}%>
-            <fieldset>
-                <legend>Novo Cliente</legend>
-                <form name="principal">
-                    Nome:<br>
-                    <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
-                    Cpf:<br>
-                    <input type="text" name="cpf" placeholder="Insira seu CPF"/><br/>
-                    Rg:<br>
-                    <input type="text" name="rg" placeholder="Insira seu RG"/><br/>
-                    Email:<br>
-                    <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
-                    Telefone:<br>
-                    <input type="text" name="telefone" placeholder="Insira seu Telefone" /><br/>
-                     Endereço:<br>
-                    <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
-                    <br>
-                    <input type="submit" name="enviar" value="Adicionar"/>
-                </form>
-            </fieldset>
-        <%if (t == true){%>
+            
+            <!--Tabela de Clientes-->
+            <%if (BD.getClientes().size() != 0 && request.getParameter("novo") == null && request.getParameter("edit") == null){%>
             <h2>Clientes Cadastrados</h2>
-            <table border="1">
+            <table align="center" border="1">
                 <tr>
                     <th>Indice</th>
                     <th>Nome</th>
@@ -112,12 +95,42 @@
                         </form>
                     </td>
                 </tr>
+                
 
                 <%}%>
             </table>
+            <br/>
+            <form>
+                <input type="submit" name="novo" value="Novo">
+            </form>
         <%}%>
+        
+        
+            <!--Formulário para inserir novo Cliente-->
+            <%if (BD.getClientes().size() == 0 || request.getParameter("novo") != null) {%>
+            <fieldset>
+                <legend>Novo Cliente</legend>
+                <form name="principal">
+                    <label>Nome:</label>
+                    <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
+                    <label>CPF:</label>
+                    <input type="text" name="cpf" placeholder="Insira seu CPF"/><br/>
+                    <label>RG:</label>
+                    <input type="text" name="rg" placeholder="Insira seu RG"/><br/>
+                    <label>E-mail:</label>
+                    <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
+                    <label>Telefone:</label>
+                    <input type="text" name="telefone" placeholder="Insira seu Telefone" /><br/>
+                    <label>Endereço:</label>
+                    <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
+                    <br>
+                    <input type="submit" name="enviar" value="Adicionar"/>
+                </form>
+            </fieldset>
+        <% } %>
     
-
+    <!--Formulário para editar Cliente-->
+    
     <%                   
         if(request.getParameter("edit")!=null){
             int i=Integer.parseInt(request.getParameter("i"));
@@ -126,17 +139,17 @@
     <fieldset>
         <legend>Editar Cliente</legend>
             <form>
-                Nome:<br>
+                <label>Nome:</label>
                 <input type="text" name="nome1" value="<%=c.getNome()%>"/><br/>
-                Cpf:<br>
+                <label>CPF:</label>
                 <input type="text" name="cpf1" value="<%=c.getCpf()%>"/><br/>
-                Rg:<br>
+                <label>RG:</label>
                 <input type="text" name="rg1" value="<%=c.getRg()%>"/><br/>
-                Email:<br>
+                <label>E-mail:</label>
                 <input type="text" name="email1" value="<%=c.getEmail()%>"/><br/>
-                Telefone:<br>
+                <label>Telefone:</label>
                 <input type="text" name="telefone1" value="<%=c.getTelefone()%>"/><br/>
-                Endereço:<br>
+                <label>Endereço:</label>
                 <input type="text" name="endereco1" value="<%=c.getEndereco()%>"/><br/>
                 <br>
                 <input type="submit" name="alterar1" value="Editar"/>
@@ -144,6 +157,7 @@
             </form>
     </fieldset>  
     <%}%>
+    
     </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
