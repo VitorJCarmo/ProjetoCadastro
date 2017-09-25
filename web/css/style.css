@@ -44,7 +44,7 @@ label{
     height: 30px;
 }
 #header{
-    padding-top: 3%;
+    padding-top: 4%;
     padding-left: 1%;
 }
 td{
@@ -117,11 +117,83 @@ li a:hover {
     line-height: 65px;
     background-color: #F8F8FF;
 }
-hr{
+#hr-especial{
     height: 12px;
     border: 0;
     box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
 }
 #team{
-    background-color: #CDC9C9;
+    background-color: #CDC5BF;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#team-div{
+    border: medium solid #607B8B;
+    background-color: #607B8B ;
+    text-align: center;
+    float: right;
+    display: inline-block;
+    padding-bottom: 20px;
+    margin-bottom: 80px;
+    color: #F0FFFF;
+}
+.team-pic{
+    height: 115px;
+    width: 115px;
+    border-radius: 50%;
+    margin-bottom: 10%;
+}
+#team-collapse{
+    width: 100%;
+    min-height: 70px;
+    cursor: pointer;
+    background-color: #4A708B;
+    color: #F0FFFF;
+    border: none;
+    border-radius: 0%;
+}
+#team-collapse:focus{
+    outline:0;
+}
+.fa {
+    padding: 13px;
+    font-size: 30px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* Add a hover effect if you want */
+.fa-facebook:hover {
+    text-decoration: none;
+    background: white ;
+    color: #3B5998 ;
+}
+.fa-google:hover{
+    background: white ;
+    color: #dd4b39 ;
+    text-decoration: none;
+}
+.fa-linkedin:hover{
+    text-decoration: none;
+    background: white ;
+    color: #007bb5 ;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+.fa-google{
+    background: #dd4b39;
+    color: white;
 }

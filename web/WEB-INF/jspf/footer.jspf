@@ -1,6 +1,6 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-      <footer class="footer">
+    <footer class="footer">
       <div class="container">
           <span class="text-muted">&reg; Projeto POO-3 - 2017</span>
       </div>

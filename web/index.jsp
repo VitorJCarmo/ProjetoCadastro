@@ -58,19 +58,41 @@
     <span class="sr-only">Próximo</span>
   </a>
 </div>
-<br/>
 
-<h2 style="text-align: center;">Equipe</h2>
+<button id="team-collapse" data-toggle="collapse" data-target="#team" aria-expanded="true" aria-controls="team">Conheça nossa equipe</button>
 
-<div id="team" class="container-fluid">
-    <div class="col-sm-4">
-        <br/><br/><br/><br/>
+<div id="team" class="collapse container-fluid">
+    <div id="team-div" class="col-sm-3">
+        <legend>Vitor do Carmo</legend>
+        <img class="team-pic" src="images/vitor.jpg"><br/>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-google"></a>
+        <br/>
     </div>
-    <div class="col-sm-4">
-        <br/><br/><br/><br/>
+    <div id="team-div" class="col-sm-3">
+        <legend>Karin Cristine</legend>
+        <img class="team-pic" src="images/karin.jpg"><br/>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-google"></a>
+        <br/>
     </div>
-    <div class="col-sm-4">
-        <br/><br/><br/><br/>
+    <div id="team-div" class="col-sm-3">
+        <legend>Henrique Melo</legend>
+        <img class="team-pic" src="images/henrique.jpg"><br/>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-google"></a>
+        <br/>
+    </div>
+    <div id="team-div" class="col-sm-3">
+        <legend>Derek Souza</legend>
+        <img class="team-pic" src="images/derek.jpg"><br/>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-google"></a>
+        <br/>
     </div>
 </div>
 

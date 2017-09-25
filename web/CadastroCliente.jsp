@@ -10,11 +10,11 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         
-        <%@include file="WEB-INF/jspf/header.jspf" %>
-
+    <%@include file="WEB-INF/jspf/header.jspf" %>
+    <%@include file="WEB-INF/jspf/menu-cliente.jspf"%>
     <div class="container">
         
-        <h1>Clientes</h1><br/>
+    <br/>
         <%
             boolean t = true;
             try{
@@ -60,8 +60,64 @@
                 <div> *erro ao processar o comando:<%=ex.getMessage()%></div>
             <%}%>
             
-            <!--Tabela de Clientes-->
-            <%if (BD.getClientes().size() != 0 && request.getParameter("novo") == null && request.getParameter("edit") == null){%>
+           
+        
+        
+            <!--Formulário para inserir novo Cliente-->
+            <%if (request.getParameter("edit") == null) {%>
+            <fieldset>
+                <h2>Novo Cliente</h2><br/>
+                <form name="principal">
+                    <label>Nome:</label>
+                    <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
+                    <label>CPF:</label>
+                    <input type="text" name="cpf" placeholder="Insira seu CPF"/><br/>
+                    <label>RG:</label>
+                    <input type="text" name="rg" placeholder="Insira seu RG"/><br/>
+                    <label>E-mail:</label>
+                    <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
+                    <label>Telefone:</label>
+                    <input type="text" name="telefone" placeholder="Insira seu Telefone" /><br/>
+                    <label>Endereço:</label>
+                    <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
+                    <br>
+                    <input type="submit" name="enviar" value="Adicionar" class="btn btn-success"/>
+                </form>
+            </fieldset>
+            <%}%>
+    
+    <!--Formulário para editar Cliente-->
+    
+    <%                   
+        if(request.getParameter("edit")!=null){
+            int i=Integer.parseInt(request.getParameter("i"));
+            Cliente c = BD.getClientes().get(i);%>
+
+    <fieldset>
+        <h2>Editar Cliente</h2><br/>
+            <form>
+                <label>Nome:</label>
+                <input type="text" name="nome1" value="<%=c.getNome()%>"/><br/>
+                <label>CPF:</label>
+                <input type="text" name="cpf1" value="<%=c.getCpf()%>"/><br/>
+                <label>RG:</label>
+                <input type="text" name="rg1" value="<%=c.getRg()%>"/><br/>
+                <label>E-mail:</label>
+                <input type="text" name="email1" value="<%=c.getEmail()%>"/><br/>
+                <label>Telefone:</label>
+                <input type="text" name="telefone1" value="<%=c.getTelefone()%>"/><br/>
+                <label>Endereço:</label>
+                <input type="text" name="endereco1" value="<%=c.getEndereco()%>"/><br/>
+                <br>
+                <input type="submit" name="alterar1" value="Editar" class="btn btn-primary"/>
+                
+            </form>
+    </fieldset>  
+    <%}%>
+    
+     <!--Tabela de Clientes-->
+            <%if (BD.getClientes().size() != 0){%>
+            <hr id="hr-especial"/>
             <h2>Clientes Cadastrados</h2><br/>
             <table align="center" class="table">
                 <tr>
@@ -106,68 +162,10 @@
             </table>
             <br/>
             <form>
-                <input type="submit" name="novo" value="Novo" class="btn btn-success">
-                <input type="submit" name="removeall" value="Remover Tudo" class="btn btn-danger">
+                <input type="submit" name="removeall" value="Limpar Tudo" class="btn btn-danger">
             </form>
+            <br/>
         <%}%>
-        
-        
-            <!--Formulário para inserir novo Cliente-->
-            <%if (BD.getClientes().size() == 0 || request.getParameter("novo") != null) {%>
-            <fieldset>
-                <h2>Novo Cliente</h2><br/>
-                <form name="principal">
-                    <label>Nome:</label>
-                    <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
-                    <label>CPF:</label>
-                    <input type="text" name="cpf" placeholder="Insira seu CPF"/><br/>
-                    <label>RG:</label>
-                    <input type="text" name="rg" placeholder="Insira seu RG"/><br/>
-                    <label>E-mail:</label>
-                    <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
-                    <label>Telefone:</label>
-                    <input type="text" name="telefone" placeholder="Insira seu Telefone" /><br/>
-                    <label>Endereço:</label>
-                    <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
-                    <br>
-                    <input type="submit" name="enviar" value="Adicionar" class="btn btn-success"/>
-                </form>
-            </fieldset>
-        <% } %>
-    
-    <!--Formulário para editar Cliente-->
-    
-    <%                   
-        if(request.getParameter("edit")!=null){
-            int i=Integer.parseInt(request.getParameter("i"));
-            Cliente c = BD.getClientes().get(i);%>
-
-    <fieldset>
-        <h2>Editar Cliente</h2><br/>
-            <form>
-                <label>Nome:</label>
-                <input type="text" name="nome1" value="<%=c.getNome()%>"/><br/>
-                <label>CPF:</label>
-                <input type="text" name="cpf1" value="<%=c.getCpf()%>"/><br/>
-                <label>RG:</label>
-                <input type="text" name="rg1" value="<%=c.getRg()%>"/><br/>
-                <label>E-mail:</label>
-                <input type="text" name="email1" value="<%=c.getEmail()%>"/><br/>
-                <label>Telefone:</label>
-                <input type="text" name="telefone1" value="<%=c.getTelefone()%>"/><br/>
-                <label>Endereço:</label>
-                <input type="text" name="endereco1" value="<%=c.getEndereco()%>"/><br/>
-                <br>
-                <input type="submit" name="alterar1" value="Editar" class="btn btn-primary"/>
-                
-            </form>
-    </fieldset>  
-    <%}%>
     
     </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    </body>
-
-</html>
+    <%@include file="WEB-INF/jspf/footer.jspf" %>  
