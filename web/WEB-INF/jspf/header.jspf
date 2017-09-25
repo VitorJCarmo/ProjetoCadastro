@@ -1,5 +1,6 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
+<%  ;%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,23 +12,18 @@
         <title>Controle de Cadastros</title>
         
     </head>
+    
     <body>
-        <div class="container-fluid">
+
+        <div id="head-fluid" class="container-fluid">
             <div class="row">  
-                <div class="col-sm-1">
+                <div id="col-header" class="col-sm-1">
                     <a href="index.jsp">
                         <img id="icon" src="images/icon.png">
                     </a>
                 </div>
-                <div class="col-sm-7">
-                    <h1 id="header-text">Controle de Cadastros</h1>
+                <div id="col-header-7" class="col-sm-5">
+                    <h2 id="header" >Controle de Cadastros</h2>
                 </div>
-                <div id="header-text" class="col-sm-4" align="right">
-                    
-                    <a id="menu" href="index.jsp"> Home &nbsp;&nbsp;</a>
-                    | <a id="menu" href="CadastroCliente.jsp">&nbsp;&nbsp; Clientes &nbsp;&nbsp;</a>
-                    | <a id="menu" href="CadastroFuncionario.jsp">&nbsp;&nbsp; Funcionários </a>
-                </div>
-            </div> 
-        </div>    
+  
         

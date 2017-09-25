@@ -1,0 +1,18 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+        <div style="padding-left: 0px; padding-right: 0px; " class="col-sm-6" align="right">
+            <ul>
+                <li>
+                    <a class="ativo" href="CadastroFornecedor.jsp">&nbsp; Fornecedores &nbsp;</a>
+                </li>
+                <li>
+                    <a href="CadastroCliente.jsp">&nbsp; Clientes &nbsp; </a>
+                </li>
+                <li>
+                    <a href="index.jsp">&nbsp; Home &nbsp;</a>
+                </li>
+            </ul>
+
+        </div>
+    </div> 
+</div>  
