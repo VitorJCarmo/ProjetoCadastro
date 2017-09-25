@@ -14,7 +14,9 @@
         <div class="container-fluid">
             <div class="row">  
                 <div class="col-sm-1">
-                    <img id="icon" src="images/icon.png">
+                    <a href="index.jsp">
+                        <img id="icon" src="images/icon.png">
+                    </a>
                 </div>
                 <div class="col-sm-7">
                     <h1 id="header-text">Controle de Cadastros</h1>
