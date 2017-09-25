@@ -1,4 +1,5 @@
 
+
 <%@page import="java.util.Arrays"%>
 
 <%@page import="javax.swing.JOptionPane"%>
@@ -17,6 +18,7 @@
         <%
             boolean t = true;
             try{
+                Cliente c= new Cliente();
                 if ( request.getParameter("enviar")!=null){
                     
                     t = true;
@@ -26,9 +28,7 @@
                     String email = request.getParameter("email");
                     String telefone = request.getParameter("telefone");
                     String endereco = request.getParameter("endereco");
-                    
-                    Cliente c= new Cliente();
-                    
+                                      
                     c.setNome(nome);
                     c.setCpf(cpf);
                     c.setRg(rg);
@@ -36,12 +36,11 @@
                     c.setTelefone(telefone);
                     c.setEndereco(endereco);
                     BD.getClientes().add(c);
-
                 }else if(request.getParameter("alterar1")!=null){
                     t = true;
-                    int i = 0;
-                    Cliente c = BD.getClientes().get(0);
-                    c.editarCliente(request.getParameter("nome1"), request.getParameter("cpf1"), request.getParameter("rg1"), request.getParameter("email1"), request.getParameter("telefone1"), request.getParameter("endereco1"));
+                    int j= Integer.parseInt(request.getParameter("i"));
+                   c.editarCliente(request.getParameter("nome1"), request.getParameter("cpf1"), request.getParameter("rg1"), request.getParameter("email1"), request.getParameter("telefone1"), request.getParameter("endereco1"));
+
                 }else if(request.getParameter("remove")!=null){
                     int i=Integer.parseInt(request.getParameter("i"));
                     BD.getClientes().remove(i);
@@ -64,7 +63,7 @@
             <!--Tabela de Clientes-->
             <%if (BD.getClientes().size() != 0 && request.getParameter("novo") == null && request.getParameter("edit") == null){%>
             <h2>Clientes Cadastrados</h2><br/>
-            <table align="center" border="1">
+            <table align="center" class="table">
                 <tr>
                     <th>Indice</th>
                     <th>Nome</th>
@@ -91,13 +90,13 @@
                     <td>
                         <form>
                             <input type="hidden" name="i" value="<%=i%>"/>
-                            <input type="submit" name="remove" value="Excluir"/>
+                            <input type="submit" name="remove" value="Excluir" class="btn btn-danger"/>
                         </form>
                     </td>
                     <td>
                         <form>
                         <input type="hidden" name="i" value="<%=i%>"/>
-                        <input type="submit" name="edit" value="Editar"/>
+                        <input type="submit" name="edit" value="Editar" class="btn btn-primary"/>
                         </form>
                     </td>
                 </tr>
@@ -107,8 +106,8 @@
             </table>
             <br/>
             <form>
-                <input type="submit" name="novo" value="Novo">
-                <input type="submit" name="removeall" value="Remover Tudo">
+                <input type="submit" name="novo" value="Novo" class="btn btn-success">
+                <input type="submit" name="removeall" value="Remover Tudo" class="btn btn-danger">
             </form>
         <%}%>
         
@@ -131,7 +130,7 @@
                     <label>Endereço:</label>
                     <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
                     <br>
-                    <input type="submit" name="enviar" value="Adicionar"/>
+                    <input type="submit" name="enviar" value="Adicionar" class="btn btn-success"/>
                 </form>
             </fieldset>
         <% } %>
@@ -159,7 +158,7 @@
                 <label>Endereço:</label>
                 <input type="text" name="endereco1" value="<%=c.getEndereco()%>"/><br/>
                 <br>
-                <input type="submit" name="alterar1" value="Editar"/>
+                <input type="submit" name="alterar1" value="Editar" class="btn btn-primary"/>
                 
             </form>
     </fieldset>  
