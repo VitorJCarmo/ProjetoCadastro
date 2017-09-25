@@ -7,7 +7,7 @@ public class Cliente {
     private String rg;
     private String email;
     private String telefone;
-    private String endereco;
+    private String endereco;   
 
     public String getNome() {
         return nome;
@@ -57,13 +57,12 @@ public class Cliente {
         this.endereco = endereco;
     }
            public  void editarCliente(String nome,String cpf,String rg,String email,String telefone,String endereco) {
-        for (int i=0; i<BD.getClientes().size();i++) {
         this.nome=nome;
         this.cpf=cpf;
         this.rg=rg;
         this.email=email;
         this.telefone=telefone;
         this.endereco=endereco;
-       }
+       
      }  
 }
