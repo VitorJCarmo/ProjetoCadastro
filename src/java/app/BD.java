@@ -5,12 +5,12 @@ import java.util.ArrayList;
 
 
 public class BD {
-  private static ArrayList<Cliente> clientes;  
-  public static ArrayList<Cliente> getClientes(){
-      if(clientes==null){
-          clientes = new ArrayList<>();
+  private static ArrayList<Cliente> cliente;  
+  public static ArrayList<Cliente> getCliente(){
+      if(cliente==null){
+          cliente = new ArrayList<>();
       }
-      return clientes;
+      return cliente;
   }
 }
 // <Cliente> remete a classe e contatos em verde eh o nome do array
