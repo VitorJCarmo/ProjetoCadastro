@@ -8,6 +8,7 @@
 <%@page import="app.BD"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <% 
 try{
                 
                 if ( request.getParameter("enviar")!=null){
@@ -20,8 +21,20 @@ try{
                     String email = request.getParameter("email");
                     String telefone = request.getParameter("telefone");
                     String endereco = request.getParameter("endereco");
+                
                     
-                    Fornecedor f= new Fornecedor(); 
+                    Fornecedor fncd= new Fornecedor(); 
+                    fncd.setNome(nome);
+                    fncd.setRazao_social(razao_social);
+                    fncd.setCnpj(cnpj);
+                    fncd.setEmail(email);
+                    fncd.setTelefone(telefone);
+                    fncd.setEndereco(endereco);
+                    BD.getFornecedor().add(fncd);
+                  
                     
-               
+                           
+                            }
+                }catch(Exception ex){ %>
+                <div> *erro ao processar o comando:<%=ex.getMessage()%></div>
             <%}%>
