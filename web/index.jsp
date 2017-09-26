@@ -43,7 +43,7 @@
             <h3 style="font-weight: bold">Cadastro de Fornecedor</h3>
             <p>Não perca tempo! Geramos para você sua tabela de fornecedores, para
             que faça sua administração de maneira eficiente</p>
-            <a href="...">
+            <a href="CadastroFornecedor.jsp">
                 <button>Cadastrar Fornecedores</button>
             </a>
         </div>
