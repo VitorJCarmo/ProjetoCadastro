@@ -81,7 +81,7 @@
                     <label>Endereço:</label>
                     <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
                     <br>
-                    <input type="submit" name="enviar" value="Adicionar" class="btn btn-success"/>
+                    <input type="submit" name="enviar" value="Adicionar" class="form-button"/>
                 </form>
             </fieldset>
             <%}%>
@@ -109,7 +109,8 @@
                 <label>Endereço:</label>
                 <input type="text" name="endereco1" value="<%=c.getEndereco()%>"/><br/>
                 <br>
-                <input type="submit" name="alterar1" value="Editar" class="btn btn-primary"/>
+                <button href="CadastroCliente.jsp" id="limpar-tudo">Cancelar</button>
+                <input type="submit" name="alterar1" value="Confirmar" class="form-button"/>
                 
             </form>
     </fieldset>  
@@ -119,7 +120,7 @@
             <%if (BD.getClientes().size() != 0){%>
             <hr id="hr-especial"/>
             <h2>Clientes Cadastrados</h2><br/>
-            <table align="center" class="table">
+            <table align="center" class="table table-striped">
                 <tr>
                     <th>Indice</th>
                     <th>Nome</th>
@@ -132,7 +133,8 @@
                     <th>Edição</th>
                 </tr>
 
-                <% for(int i=0; i<BD.getClientes().size();i++){ %>
+                <% int i;
+                   for(i=0; i<BD.getClientes().size();i++){ %>
                 <% Cliente c = BD.getClientes().get(i);%>
 
                 <tr>
@@ -146,13 +148,13 @@
                     <td>
                         <form>
                             <input type="hidden" name="i" value="<%=i%>"/>
-                            <input type="submit" name="remove" value="Excluir" class="btn btn-danger"/>
+                            <input id="table-icon-delete" type="image" name="remove" value="Excluir" src="images/Delete.png"/>
                         </form>
                     </td>
                     <td>
                         <form>
                         <input type="hidden" name="i" value="<%=i%>"/>
-                        <input type="submit" name="edit" value="Editar" class="btn btn-primary"/>
+                        <input id="table-icon-edit" type="image" name="edit" value="Editar" src="images/edit.png"/>
                         </form>
                     </td>
                 </tr>
@@ -160,9 +162,13 @@
 
                 <%}%>
             </table>
+            
+            <%if (i >= 5) {%>
+                <a id="topo" href="">Voltar ao topo</a><br/>
+            <%}%>
             <br/>
             <form>
-                <input type="submit" name="removeall" value="Limpar Tudo" class="btn btn-danger">
+                <input type="submit" name="removeall" value="Limpar Tudo" id="limpar-tudo">
             </form>
             <br/>
         <%}%>
