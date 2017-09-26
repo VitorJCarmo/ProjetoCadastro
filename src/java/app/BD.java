@@ -12,5 +12,12 @@ public class BD {
       }
       return cliente;
   }
+  private static ArrayList<Fornecedor> fornecedor;
+  public static ArrayList<Fornecedor> getFornecedor(){
+      if(fornecedor==null){
+          fornecedor= new ArrayList<>();
+      }
+      return fornecedor;
+  }
 }
 // <Cliente> remete a classe e contatos em verde eh o nome do array
