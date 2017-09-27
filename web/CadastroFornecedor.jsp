@@ -9,6 +9,17 @@
 <%@page import="app.BD"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<script language='JavaScript'>
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+</script>
         
     <%@include file="WEB-INF/jspf/header.jspf" %>
     <%@include file="WEB-INF/jspf/menu-cliente.jspf"%>
@@ -84,11 +95,11 @@
                     <label>Razão Social:</label>
                     <input type="text" name="razao_social" placeholder="Insira a razão social"/><br/>
                     <label>CNPJ:</label>
-                    <input type="number" name="cnpj" placeholder="Insira o CNPJ"/><br/>
+                    <input type="text" name="cnpj" onkeypress='return SomenteNumero(event)' maxlength="14" placeholder="Insira o CNPJ"/><br/>
                     <label>E-mail:</label>
                     <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
                     <label>Telefone:</label>
-                    <input type="number" name="telefone" placeholder="Insira seu Telefone" /><br/>
+                    <input type="text" name="telefone" onkeypress='return SomenteNumero(event)' maxlength="11" placeholder="Insira seu Telefone" /><br/>
                     <label>Endereço:</label>
                     <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
                     <br>
