@@ -12,6 +12,42 @@
         
     <%@include file="WEB-INF/jspf/header.jspf" %>
     <%@include file="WEB-INF/jspf/menu-cliente.jspf"%>
+    
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<script language='JavaScript'>
+function RG(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58 || tecla==88 || tecla==120 )) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+function SomenteNumero(e){
+    var tecla=(window.event)?event.keyCode:e.which;   
+    if((tecla>47 && tecla<58)) return true;
+    else{
+    	if (tecla==8 || tecla==0) return true;
+	else  return false;
+    }
+}
+</script>
     <div class="container">
         
     <br/>
@@ -87,13 +123,13 @@
                     <label>Nome:</label>
                     <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
                     <label>CPF:</label>
-                    <input type="number" name="cpf" placeholder="Insira seu CPF"/><br/>
+                    <input type="text" name="cpf" onkeypress='return SomenteNumero(event)' maxlength="11" placeholder="Insira seu CPF"/><br/>
                     <label>RG:</label>
-                    <input type="text" name="rg" placeholder="Insira seu RG"/><br/>
+                    <input type="text" name="rg" onkeypress='return RG(event)' maxlength="9" placeholder="Insira seu RG"/><br/>
                     <label>E-mail:</label>
                     <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
                     <label>Telefone:</label>
-                    <input type="number" name="telefone" placeholder="Insira seu Telefone" /><br/>
+                    <input type="text" name="telefone" onkeypress='return SomenteNumero(event)' maxlength="11" placeholder="Insira seu Telefone" /><br/>
                     <label>Endereço:</label>
                     <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
                     <br>
