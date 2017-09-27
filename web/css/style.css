@@ -19,8 +19,7 @@ body{
     max-height: 65px;
 }
 .container{
-    margin-left: 2%;
-    margin-right: 2%;
+
     text-align: center; 
     
 }
@@ -42,11 +41,11 @@ label{
     display: inline-block;
     text-align: left;
     font-weight: bold;
-    width: 75px;
+    width: 150px;
     height: 30px;
 }
 #header{
-    padding-top: 4%;
+    padding-top: 2.5%;
     padding-left: 1%;
 }
 td{
@@ -60,7 +59,7 @@ th{
 }
 #carousel{
     width: 100%;
-    height: 450px;
+    height: 600px;
 }
 button{
     background-color: #1874CD;
@@ -110,6 +109,7 @@ li a:hover {
 }
 #col-header{
     padding-right: 0%;
+    padding-left: 2%;
 }
 .footer {
     position: absolute;
