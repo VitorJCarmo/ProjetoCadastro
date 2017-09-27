@@ -62,7 +62,7 @@ alert("E-mail invalido");
                     String telefone = request.getParameter("telefone");
                     String endereco = request.getParameter("endereco");
                     
-                    
+                    if (request.getParameter("nome") != "" && request.getParameter("razao_social") != "" && request.getParameter("cnpj") != "" && request.getParameter("email") != "" && request.getParameter("telefone") != "" && request.getParameter("endereco") != ""){
                     Fornecedor fncd= new Fornecedor(); 
                     fncd.setNome(nome);
                     fncd.setRazao_social(razao_social);
@@ -71,6 +71,9 @@ alert("E-mail invalido");
                     fncd.setTelefone(telefone);
                     fncd.setEndereco(endereco);
                     BD.getFornecedor().add(fncd);
+                    }else {%>
+                    <h3 style="color:red">*Não deixe espaços em branco</h3>
+                    <%}
                     
                 }else if(request.getParameter("alterar1")!=null){
                     int j = Integer.parseInt(request.getParameter("i"));
@@ -127,7 +130,9 @@ alert("E-mail invalido");
                     <input type="submit" name="enviar" value="Adicionar" class="form-button"/>
                 </form>
             </fieldset>
-            <hr id="hr-especial"/>
+            <%if(BD.getFornecedor().size() != 0 && request.getParameter("edit") == null){%>
+                <hr id="hr-especial"/>
+            <%}%>
             <%}%>
 
      <!--Tabela de Clientes-->
