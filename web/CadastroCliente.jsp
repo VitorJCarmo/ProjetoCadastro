@@ -87,13 +87,13 @@
                     <label>Nome:</label>
                     <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
                     <label>CPF:</label>
-                    <input type="text" name="cpf" placeholder="Insira seu CPF"/><br/>
+                    <input type="number" name="cpf" placeholder="Insira seu CPF"/><br/>
                     <label>RG:</label>
                     <input type="text" name="rg" placeholder="Insira seu RG"/><br/>
                     <label>E-mail:</label>
                     <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
                     <label>Telefone:</label>
-                    <input type="text" name="telefone" placeholder="Insira seu Telefone" /><br/>
+                    <input type="number" name="telefone" placeholder="Insira seu Telefone" /><br/>
                     <label>Endereço:</label>
                     <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
                     <br>
