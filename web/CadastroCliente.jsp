@@ -13,23 +13,6 @@
     <%@include file="WEB-INF/jspf/header.jspf" %>
     <%@include file="WEB-INF/jspf/menu-cliente.jspf"%>
     
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
 <script language='JavaScript'>
 function RG(e){
     var tecla=(window.event)?event.keyCode:e.which;   
