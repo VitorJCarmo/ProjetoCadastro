@@ -19,6 +19,27 @@ function SomenteNumero(e){
 	else  return false;
     }
 }
+function validacaoEmail(field) {
+usuario = field.value.substring(0, field.value.indexOf("@"));
+dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+
+if ((usuario.length >=1) &&
+    (dominio.length >=3) && 
+    (usuario.search("@")==-1) && 
+    (dominio.search("@")==-1) &&
+    (usuario.search(" ")==-1) && 
+    (dominio.search(" ")==-1) &&
+    (dominio.search(".")!=-1) &&      
+    (dominio.indexOf(".") >=1)&& 
+    (dominio.lastIndexOf(".") < dominio.length - 1)) {
+document.getElementById("msgemail").innerHTML="E-mail válido";
+alert("E-mail valido");
+}
+else{
+document.getElementById("msgemail").innerHTML="<font color='red'>E-mail inválido </font>";
+alert("E-mail invalido");
+}
+}
 </script>
         
     <%@include file="WEB-INF/jspf/header.jspf" %>
@@ -97,7 +118,7 @@ function SomenteNumero(e){
                     <label>CNPJ:</label>
                     <input type="text" name="cnpj" onkeypress='return SomenteNumero(event)' maxlength="14" placeholder="Insira o CNPJ"/><br/>
                     <label>E-mail:</label>
-                    <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
+                    <input type="text" name="email" onblur="validacaoEmail(principal.email)"  maxlength="60" placeholder="Insira seu E-Mail"/><div id="msgemail"></div><br/>
                     <label>Telefone:</label>
                     <input type="text" name="telefone" onkeypress='return SomenteNumero(event)' maxlength="11" placeholder="Insira seu Telefone" /><br/>
                     <label>Endereço:</label>
