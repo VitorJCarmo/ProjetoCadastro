@@ -1,4 +1,5 @@
 
+
 <%@page import="java.util.Arrays"%>
 
 <%@page import="javax.swing.JOptionPane"%>
@@ -14,8 +15,9 @@
     <div class="container">
         
     <br/>
-    <% 
-try{
+        <%
+
+            try{
                 
                 if ( request.getParameter("enviar")!=null){
                     
@@ -27,7 +29,7 @@ try{
                     String email = request.getParameter("email");
                     String telefone = request.getParameter("telefone");
                     String endereco = request.getParameter("endereco");
-                
+                    
                     
                     Fornecedor fncd= new Fornecedor(); 
                     fncd.setNome(nome);
@@ -37,7 +39,7 @@ try{
                     fncd.setTelefone(telefone);
                     fncd.setEndereco(endereco);
                     BD.getFornecedor().add(fncd);
-                
+                    
                 }else if(request.getParameter("alterar1")!=null){
                     int j = Integer.parseInt(request.getParameter("i"));
                     String nome = request.getParameter("nome1");
@@ -59,20 +61,20 @@ try{
                     BD.getFornecedor().set(j,fncd);
                    }else if (request.getParameter("remove") != null){
                        int i=Integer.parseInt(request.getParameter("i"));
-                    BD.getCliente().remove(i);
+                    BD.getFornecedor().remove(i);
                    }
                    else if(request.getParameter("removeall") != null){
-                    int rt = BD.getCliente().size() - 1;
+                    int rt = BD.getFornecedor().size() - 1;
                     for (int r = rt; r >= 0; r--){
-                        BD.getCliente().remove(r);
+                        BD.getFornecedor().remove(r);
                     }
-               
-                        }
-}catch(Exception ex){ %>
+
+                }
+            }catch(Exception ex){ %>
                 <div> *erro ao processar o comando:<%=ex.getMessage()%></div>
             <%}%>
             
-           <!---- Inserir Fornecedor---->
+                      <!---- Inserir Fornecedor---->
             <%if (request.getParameter("edit") == null) {%>
             <fieldset>
                 <h2>Cadastro de Fornecedor</h2><br/>
@@ -95,18 +97,18 @@ try{
             </fieldset>
             <hr id="hr-especial"/>
             <%}%>
-            
-            <!--Tabela de Fornecedores-->
+
+     <!--Tabela de Clientes-->
             <%  int i = 0;
-                if (BD.getCliente().size() != 0){%>
-                
-                <h2>Fornecedores</h2><br/>
+                if (BD.getFornecedor().size() != 0){%>
+            
+            <h2>Fornecedores Cadastrados</h2><br/>
             <table align="center" class="table table-striped">
                 <tr>
                     <th>Indice</th>
                     <th>Nome</th>
                     <th>Razão Social</th>
-                    <th>CNPJ</th>
+                    <th>CPF</th>
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Endereço</th>
@@ -118,8 +120,8 @@ try{
                 if(request.getParameter("edit") == null ){
                    for(i=0; i<BD.getFornecedor().size();i++){ %>
                 <% Fornecedor fncd = BD.getFornecedor().get(i);%>
-                
-                 <tr>
+
+                <tr>
                     <td><%=i%></td>
                     <td><%=fncd.getNome()%></td>
                     <td><%=fncd.getRazao_social()%></td>
@@ -141,8 +143,10 @@ try{
                         </form>
                     </td>
                 </tr>
-                 <%}
-                }else {
+                
+
+                    <%}
+                 }else {
                     for(i=0; i<BD.getFornecedor().size();i++){
                     Fornecedor fncd = BD.getFornecedor().get(i);
                     if(i == Integer.parseInt(request.getParameter("i"))){%>
@@ -194,7 +198,7 @@ try{
                         }
                     
                 }%>
-            </table>
+           </table>
             
              <%if (i >= 5) {%>
                 <a id="topo" href="">Voltar ao topo</a><br/>
@@ -210,7 +214,3 @@ try{
     
     </div>
     <%@include file="WEB-INF/jspf/footer.jspf" %>
-           
-           
-      
-            
