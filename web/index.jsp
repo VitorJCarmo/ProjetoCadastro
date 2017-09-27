@@ -87,7 +87,7 @@
         <br/>
     </div>
     <div id="team-div" class="col-sm-3">
-        <legend>Derek Souza</legend>
+        <legend>Derek Szabó</legend>
         <img class="team-pic" src="images/derek.jpg"><br/>
         <a href="#" class="fa fa-facebook"></a>
         <a href="#" class="fa fa-linkedin"></a>
