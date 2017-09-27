@@ -43,7 +43,7 @@ alert("E-mail invalido");
 </script>
         
     <%@include file="WEB-INF/jspf/header.jspf" %>
-    <%@include file="WEB-INF/jspf/menu-fornecedor.jspf"%>
+    <%@include file="WEB-INF/jspf/menu-cliente.jspf"%>
     <div class="container">
         
     <br/>
@@ -62,7 +62,7 @@ alert("E-mail invalido");
                     String telefone = request.getParameter("telefone");
                     String endereco = request.getParameter("endereco");
                     
-                    if(request.getParameter("nome") != "" && request.getParameter("razao_social") != "" && request.getParameter("cnpj") != "" && request.getParameter("email") != "" && request.getParameter("telefone") != "" && request.getParameter("endereco") != "") {
+                    
                     Fornecedor fncd= new Fornecedor(); 
                     fncd.setNome(nome);
                     fncd.setRazao_social(razao_social);
@@ -71,10 +71,6 @@ alert("E-mail invalido");
                     fncd.setTelefone(telefone);
                     fncd.setEndereco(endereco);
                     BD.getFornecedor().add(fncd);
-                    }else {%>
-                        <h3 style="color: red">*Não deixe campos em branco</h3>
-                    <%
-                    }
                     
                 }else if(request.getParameter("alterar1")!=null){
                     int j = Integer.parseInt(request.getParameter("i"));
@@ -113,7 +109,7 @@ alert("E-mail invalido");
                       <!---- Inserir Fornecedor---->
             <%if (request.getParameter("edit") == null) {%>
             <fieldset>
-                <h2>Novo Fornecedor</h2><br/>
+                <h2>Cadastro de Fornecedor</h2><br/>
                 <form name="principal">
                     <label>Nome:</label>
                     <input type="text" name="nome" placeholder="Insira seu nome"/><br/>
@@ -131,12 +127,10 @@ alert("E-mail invalido");
                     <input type="submit" name="enviar" value="Adicionar" class="form-button"/>
                 </form>
             </fieldset>
-            <%if (request.getParameter("edit") == null && BD.getFornecedor().size() != 0){%>
-                <hr id="hr-especial"/>
-            <%}%>
+            <hr id="hr-especial"/>
             <%}%>
 
-     <!--Tabela de Fornecedor-->
+     <!--Tabela de Clientes-->
             <%  int i = 0;
                 if (BD.getFornecedor().size() != 0){%>
             

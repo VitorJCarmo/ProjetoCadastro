@@ -60,8 +60,8 @@ alert("E-mail invalido");
             try{
                 
                 if ( request.getParameter("enviar")!=null){
-
                     
+
                     
                     String nome = request.getParameter("nome");
                     String cpf = request.getParameter("cpf");
@@ -70,7 +70,6 @@ alert("E-mail invalido");
                     String telefone = request.getParameter("telefone");
                     String endereco = request.getParameter("endereco");
                     
-                    if(request.getParameter("nome") != "" && request.getParameter("cpf") != "" && request.getParameter("rg") != "" && request.getParameter("email") != "" && request.getParameter("telefone") != "" && request.getParameter("endereco") != "") {
                     Cliente c= new Cliente(); 
                     
                     c.setNome(nome);
@@ -80,10 +79,6 @@ alert("E-mail invalido");
                     c.setTelefone(telefone);
                     c.setEndereco(endereco);
                     BD.getCliente().add(c);
-                    
-                    }else {%>
-                        <h3 style="color: red">*Não deixe campos em branco</h3>
-                    <%}
                     
                 }else if(request.getParameter("alterar1")!=null){
 
@@ -145,17 +140,14 @@ alert("E-mail invalido");
                     <input type="submit" name="enviar" value="Adicionar" class="form-button"/>
                 </form>
             </fieldset>
-            <%if (request.getParameter("edit") == null && BD.getCliente().size() != 0){%>
-                <hr id="hr-especial"/>
-            <%}%>
+            <hr id="hr-especial"/>
             <%}%>
     
     <!--Formulário para editar Cliente-->
 
      <!--Tabela de Clientes-->
             <%  int i = 0;
-                if (BD.getCliente().size() != 0){
-                    %>
+                if (BD.getCliente().size() != 0){%>
             
             <h2>Clientes Cadastrados</h2><br/>
             <table align="center" class="table table-striped">
@@ -172,7 +164,7 @@ alert("E-mail invalido");
                 </tr>
                 
                 <% 
-                if(request.getParameter("edit") == null){
+                if(request.getParameter("edit") == null ){
                    for(i=0; i<BD.getCliente().size();i++){ %>
                 <% Cliente c = BD.getCliente().get(i);%>
 
@@ -263,7 +255,6 @@ alert("E-mail invalido");
                 </form>
             <%}%>
             <br/>
-            
         <%}%>
     
     </div>
