@@ -84,11 +84,11 @@
                     <label>Razão Social:</label>
                     <input type="text" name="razao_social" placeholder="Insira a razão social"/><br/>
                     <label>CNPJ:</label>
-                    <input type="text" name="cnpj" placeholder="Insira o CNPJ"/><br/>
+                    <input type="number" name="cnpj" placeholder="Insira o CNPJ"/><br/>
                     <label>E-mail:</label>
                     <input type="text" name="email" placeholder="Insira seu E-Mail"/><br/>
                     <label>Telefone:</label>
-                    <input type="text" name="telefone" placeholder="Insira seu Telefone" /><br/>
+                    <input type="number" name="telefone" placeholder="Insira seu Telefone" /><br/>
                     <label>Endereço:</label>
                     <input type="text" name="endereco" placeholder="Insira seu Endereço"/><br/>
                     <br>
@@ -108,7 +108,7 @@
                     <th>Indice</th>
                     <th>Nome</th>
                     <th>Razão Social</th>
-                    <th>CPF</th>
+                    <th>CNPJ</th>
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Endereço</th>
